@@ -11,7 +11,7 @@
 @interface AFSoundManager ()
 
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic) int type;
+@property (nonatomic) NSInteger type;
 
 @end
 
@@ -22,7 +22,7 @@
     static AFSoundManager *soundManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        soundManager = [[self alloc]init];
+        soundManager = [[self alloc] init];
     });
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
@@ -46,21 +46,21 @@
     _status = AFSoundManagerStatusPlaying;
     [_delegate currentPlayingStatusChanged:AFSoundManagerStatusPlaying];
     
-    __block int percentage = 0;
+    __block NSInteger percentage = 0;
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
         
         if ((_audioPlayer.duration - _audioPlayer.currentTime) >= 1) {
             
             percentage = (int)((_audioPlayer.currentTime * 100)/_audioPlayer.duration);
-            int timeRemaining = _audioPlayer.duration - _audioPlayer.currentTime;
+            NSInteger timeRemaining = _audioPlayer.duration - _audioPlayer.currentTime;
 
             if (block) {
                 block(percentage, _audioPlayer.currentTime, timeRemaining, error, NO);
             }
         } else {
             
-            int timeRemaining = _audioPlayer.duration - _audioPlayer.currentTime;
+            NSInteger timeRemaining = _audioPlayer.duration - _audioPlayer.currentTime;
 
             if (block) {
                 block(100, _audioPlayer.currentTime, timeRemaining, error, YES);
@@ -85,21 +85,21 @@
     
     if (!error) {
     
-        __block int percentage = 0;
+        __block NSInteger percentage = 0;
         
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
             
             if ((CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime)) != 0) {
                 
                 percentage = (int)((CMTimeGetSeconds(_player.currentItem.currentTime) * 100)/CMTimeGetSeconds(_player.currentItem.duration));
-                int timeRemaining = CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime);
+                NSInteger timeRemaining = CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime);
                                 
                 if (block) {
                     block(percentage, CMTimeGetSeconds(_player.currentItem.currentTime), timeRemaining, error, NO);
                 }
             } else {
                 
-                int timeRemaining = CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime);
+                NSInteger timeRemaining = CMTimeGetSeconds(_player.currentItem.duration) - CMTimeGetSeconds(_player.currentItem.currentTime);
 
                 if (block) {
                     block(100, CMTimeGetSeconds(_player.currentItem.currentTime), timeRemaining, error, YES);
@@ -185,7 +185,7 @@
 }
 
 -(void)moveToSection:(CGFloat)section {
-    int audioPlayerSection = _audioPlayer.duration * section;
+    NSInteger audioPlayerSection = _audioPlayer.duration * section;
     [_audioPlayer setCurrentTime:audioPlayerSection];
     
     int32_t timeScale = _player.currentItem.asset.duration.timescale;

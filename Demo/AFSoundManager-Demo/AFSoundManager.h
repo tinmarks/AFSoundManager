@@ -13,10 +13,10 @@
 
 #import "AFAudioRouter.h"
 
-typedef NS_ENUM (int, AFSoundManagerStatus) {
+typedef NS_ENUM (NSUInteger, AFSoundManagerStatus) {
+    AFSoundManagerStatusStopped = 0,
     AFSoundManagerStatusPlaying,
     AFSoundManagerStatusPaused,
-    AFSoundManagerStatusStopped,
     AFSoundManagerStatusRestarted,
     AFSoundManagerStatusFinished
 };
@@ -31,7 +31,7 @@ typedef NS_ENUM (int, AFSoundManagerStatus) {
 
 @interface AFSoundManager : NSObject
 
-typedef void (^progressBlock)(int percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished);
+typedef void (^progressBlock)(NSInteger percentage, CGFloat elapsedTime, CGFloat timeRemaining, NSError *error, BOOL finished);
 
 +(instancetype)sharedManager;
 @property (nonatomic, assign) id<AFSoundManagerDelegate> delegate;
@@ -40,7 +40,7 @@ typedef void (^progressBlock)(int percentage, CGFloat elapsedTime, CGFloat timeR
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 
-@property (nonatomic) int status;
+@property (nonatomic) AFSoundManagerStatus status;
 
 -(void)startPlayingLocalFileWithName:(NSString *)name andBlock:(progressBlock)block;
 -(void)startStreamingRemoteAudioFromURL:(NSString *)url andBlock:(progressBlock)block;
