@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222866E41978AB1E00757489 /* AFAudioRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 222866E11978AB1E00757489 /* AFAudioRouter.m */; };
+		222866E51978AB1E00757489 /* AFSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 222866E31978AB1E00757489 /* AFSoundManager.m */; };
 		A72249D018FEC08200BB46B1 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A72249CD18FEC08200BB46B1 /* play.png */; };
 		A72249D118FEC08200BB46B1 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A72249CE18FEC08200BB46B1 /* pause.png */; };
 		A72249D418FEC09700BB46B1 /* jazz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A72249D318FEC09700BB46B1 /* jazz.mp3 */; };
@@ -24,10 +26,8 @@
 		A7FF76F218FE585D003C4B2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FF76D418FE585D003C4B2E /* UIKit.framework */; };
 		A7FF76FA18FE585D003C4B2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7FF76F818FE585D003C4B2E /* InfoPlist.strings */; };
 		A7FF76FC18FE585D003C4B2E /* AFSoundManager_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF76FB18FE585D003C4B2E /* AFSoundManager_DemoTests.m */; };
-		A7FF770818FE587E003C4B2E /* AFSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF770718FE587E003C4B2E /* AFSoundManager.m */; };
 		A7FF770A18FE5BBA003C4B2E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FF770918FE5BBA003C4B2E /* AudioToolbox.framework */; };
 		A7FF770C18FE5BBE003C4B2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FF770B18FE5BBE003C4B2E /* AVFoundation.framework */; };
-		A7FF771518FE6791003C4B2E /* AFAudioRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF771418FE6791003C4B2E /* AFAudioRouter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		222866E01978AB1E00757489 /* AFAudioRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAudioRouter.h; sourceTree = "<group>"; };
+		222866E11978AB1E00757489 /* AFAudioRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAudioRouter.m; sourceTree = "<group>"; };
+		222866E21978AB1E00757489 /* AFSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSoundManager.h; sourceTree = "<group>"; };
+		222866E31978AB1E00757489 /* AFSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSoundManager.m; sourceTree = "<group>"; };
 		A72249CD18FEC08200BB46B1 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		A72249CE18FEC08200BB46B1 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		A72249D318FEC09700BB46B1 /* jazz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jazz.mp3; sourceTree = "<group>"; };
@@ -63,12 +67,8 @@
 		A7FF76F718FE585D003C4B2E /* AFSoundManager-DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AFSoundManager-DemoTests-Info.plist"; sourceTree = "<group>"; };
 		A7FF76F918FE585D003C4B2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7FF76FB18FE585D003C4B2E /* AFSoundManager_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFSoundManager_DemoTests.m; sourceTree = "<group>"; };
-		A7FF770618FE587E003C4B2E /* AFSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSoundManager.h; sourceTree = "<group>"; };
-		A7FF770718FE587E003C4B2E /* AFSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSoundManager.m; sourceTree = "<group>"; };
 		A7FF770918FE5BBA003C4B2E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A7FF770B18FE5BBE003C4B2E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		A7FF771318FE6791003C4B2E /* AFAudioRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAudioRouter.h; sourceTree = "<group>"; };
-		A7FF771418FE6791003C4B2E /* AFAudioRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAudioRouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +97,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		222866DF1978AB1E00757489 /* AFSoundManager */ = {
+			isa = PBXGroup;
+			children = (
+				222866E01978AB1E00757489 /* AFAudioRouter.h */,
+				222866E11978AB1E00757489 /* AFAudioRouter.m */,
+				222866E21978AB1E00757489 /* AFSoundManager.h */,
+				222866E31978AB1E00757489 /* AFSoundManager.m */,
+			);
+			name = AFSoundManager;
+			path = ../../Classes;
+			sourceTree = "<group>";
+		};
 		A72249D218FEC08900BB46B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,13 +154,13 @@
 		A7FF76D618FE585D003C4B2E /* AFSoundManager-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				222866DF1978AB1E00757489 /* AFSoundManager */,
 				A7FF76DF18FE585D003C4B2E /* AppDelegate.h */,
 				A7FF76E018FE585D003C4B2E /* AppDelegate.m */,
 				A7FF76E218FE585D003C4B2E /* Main.storyboard */,
 				A7FF76E518FE585D003C4B2E /* ViewController.h */,
 				A7FF76E618FE585D003C4B2E /* ViewController.m */,
 				A72249D218FEC08900BB46B1 /* Resources */,
-				A7FF770518FE5863003C4B2E /* AFSoundManager */,
 				A7FF76E818FE585D003C4B2E /* Images.xcassets */,
 				A7FF76D718FE585D003C4B2E /* Supporting Files */,
 			);
@@ -182,17 +194,6 @@
 				A7FF76F818FE585D003C4B2E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A7FF770518FE5863003C4B2E /* AFSoundManager */ = {
-			isa = PBXGroup;
-			children = (
-				A7FF770618FE587E003C4B2E /* AFSoundManager.h */,
-				A7FF770718FE587E003C4B2E /* AFSoundManager.m */,
-				A7FF771318FE6791003C4B2E /* AFAudioRouter.h */,
-				A7FF771418FE6791003C4B2E /* AFAudioRouter.m */,
-			);
-			name = AFSoundManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,11 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222866E41978AB1E00757489 /* AFAudioRouter.m in Sources */,
+				222866E51978AB1E00757489 /* AFSoundManager.m in Sources */,
 				A7FF76E718FE585D003C4B2E /* ViewController.m in Sources */,
 				A7FF76E118FE585D003C4B2E /* AppDelegate.m in Sources */,
-				A7FF770818FE587E003C4B2E /* AFSoundManager.m in Sources */,
 				A7FF76DD18FE585D003C4B2E /* main.m in Sources */,
-				A7FF771518FE6791003C4B2E /* AFAudioRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

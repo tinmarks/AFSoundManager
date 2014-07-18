@@ -54,7 +54,7 @@ typedef void (^progressBlock)(NSInteger percentage, CGFloat elapsedTime, CGFloat
 
 -(void)changeVolumeToValue:(CGFloat)volume;
 -(void)changeSpeedToRate:(CGFloat)rate;
--(void)moveToSecond:(int)second;
+-(void)moveToSecond:(NSInteger)second;
 -(void)moveToSection:(CGFloat)section;
 -(NSDictionary *)retrieveInfoForCurrentPlaying;
 
