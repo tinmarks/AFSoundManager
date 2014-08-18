@@ -32,12 +32,15 @@
 }
 
 -(void)startPlayingLocalFileWithName:(NSString *)name andBlock:(progressBlock)block {
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    
     NSString *filePath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle]resourcePath], name];
-    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+	NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+	[self startPlayingLocalFileWithURL:fileURL andBlock:block];
+}
+
+-(void)startPlayingLocalFileWithURL:(NSURL *)fileURL andBlock:(progressBlock)block {
+	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+	[[AVAudioSession sharedInstance] setActive:YES error:nil];
+	
     NSError *error = nil;
     
     _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:&error];

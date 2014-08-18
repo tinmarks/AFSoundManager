@@ -42,6 +42,7 @@ typedef void (^progressBlock)(NSInteger percentage, CGFloat elapsedTime, CGFloat
 
 @property (nonatomic) AFSoundManagerStatus status;
 
+-(void)startPlayingLocalFileWithURL:(NSURL *)fileURL andBlock:(progressBlock)block;
 -(void)startPlayingLocalFileWithName:(NSString *)name andBlock:(progressBlock)block;
 -(void)startStreamingRemoteAudioFromURL:(NSString *)url andBlock:(progressBlock)block;
 
