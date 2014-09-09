@@ -10,29 +10,29 @@
 	<string>AFSoundManager-Demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6B651894-353F-4CE6-B3D0-49C8ADA180DE</key>
+		<key>56902A73E4E554AFFE627590254B1AF883013338</key>
 		<string>https://github.com/chroman-forks/AFSoundManager.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Demo/AFSoundManager-Demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6B651894-353F-4CE6-B3D0-49C8ADA180DE</key>
+		<key>56902A73E4E554AFFE627590254B1AF883013338</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/chroman-forks/AFSoundManager.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6B651894-353F-4CE6-B3D0-49C8ADA180DE</string>
+	<string>56902A73E4E554AFFE627590254B1AF883013338</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6B651894-353F-4CE6-B3D0-49C8ADA180DE</string>
+			<string>56902A73E4E554AFFE627590254B1AF883013338</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AFSoundManager</string>
 		</dict>

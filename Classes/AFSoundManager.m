@@ -8,10 +8,11 @@
 
 #import "AFSoundManager.h"
 
-@interface AFSoundManager ()
+@interface AFSoundManager () <AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) NSInteger type;
+@property (strong, nonatomic) progressBlock block;
 
 @end
 
@@ -44,13 +45,14 @@
     NSError *error = nil;
     
     _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:&error];
+	_audioPlayer.delegate = self;
     [_audioPlayer play];
     
     _status = AFSoundManagerStatusPlaying;
     [_delegate currentPlayingStatusChanged:AFSoundManagerStatusPlaying];
     
     __block NSInteger percentage = 0;
-    
+	_block = block;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 block:^{
         
         if ((_audioPlayer.duration - _audioPlayer.currentTime) >= 1) {
@@ -61,18 +63,34 @@
             if (block) {
                 block(percentage, _audioPlayer.currentTime, timeRemaining, error, NO);
             }
-        } else {
-            
-            NSInteger timeRemaining = _audioPlayer.duration - _audioPlayer.currentTime;
-
-            if (block) {
-                block(100, _audioPlayer.currentTime, timeRemaining, error, YES);
-            }
-            [_timer invalidate];
-            _status = AFSoundManagerStatusFinished;
-            [_delegate currentPlayingStatusChanged:AFSoundManagerStatusFinished];
         }
-    } repeats:YES];
+	} repeats:YES];
+}
+
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
+	if (_block) {
+		_block(self.percentage, _audioPlayer.currentTime, self.timeRemaining, error, NO);
+	}
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+	if (_block) {
+		_block(100, _audioPlayer.currentTime, 0, nil, YES);
+		_block = nil;
+	}
+	[_timer invalidate];
+	_status = AFSoundManagerStatusFinished;
+	[_delegate currentPlayingStatusChanged:AFSoundManagerStatusFinished];
+}
+
+- (CGFloat)percentage {
+	return (_audioPlayer.currentTime * 100.0) / _audioPlayer.duration;
+}
+- (NSTimeInterval)timeRemaining {
+	return _audioPlayer.duration - _audioPlayer.currentTime;
+}
+- (NSTimeInterval)timeElapsed {
+	return _audioPlayer.currentTime;
 }
 
 -(void)startStreamingRemoteAudioFromURL:(NSString *)url andBlock:(progressBlock)block {
@@ -80,7 +98,7 @@
     NSURL *streamingURL = [NSURL URLWithString:url];
     NSError *error = nil;
     
-    _player = [[AVPlayer alloc]initWithURL:streamingURL];
+    _player = [[AVPlayer alloc] initWithURL:streamingURL];
     [_player play];
     
     _status = AFSoundManagerStatusPlaying;
@@ -180,7 +198,7 @@
     [_delegate currentPlayingStatusChanged:AFSoundManagerStatusRestarted];
 }
 
--(void)moveToSecond:(int)second {
+-(void)moveToSecond:(NSInteger)second {
     [_audioPlayer setCurrentTime:second];
     
     int32_t timeScale = _player.currentItem.asset.duration.timescale;

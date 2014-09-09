@@ -40,6 +40,10 @@ typedef void (^progressBlock)(NSInteger percentage, CGFloat elapsedTime, CGFloat
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 
+@property (readonly, nonatomic) CGFloat percentage;
+@property (readonly, nonatomic) NSTimeInterval timeRemaining;
+@property (readonly, nonatomic) NSTimeInterval timeElapsed;
+
 @property (nonatomic) AFSoundManagerStatus status;
 
 -(void)startPlayingLocalFileWithURL:(NSURL *)fileURL andBlock:(progressBlock)block;
